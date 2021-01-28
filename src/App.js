@@ -1,24 +1,26 @@
-import logo from './logo.svg';
+import React from 'react';
+import {
+  BrowserRouter, Route, Switch,
+} from 'react-router-dom';
+import bfsPage from './pages/bfsPage';
+import dfsPage from './pages/dfsPage';
+import dijkstraPage from './pages/dijkstraPage';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <div>
+          <Switch>
+            <Route exact path="/" component={bfsPage} />
+            <Route path="/bfs" component={bfsPage} />
+            <Route path="/dfs" component={dfsPage} />
+            <Route path="/dijkstra" component={dijkstraPage} />
+          </Switch>
+        </div>
+      </div>
+    </BrowserRouter>
   );
 }
 
